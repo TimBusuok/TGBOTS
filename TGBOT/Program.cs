@@ -1,13 +1,18 @@
 ﻿
-
+using System.ComponentModel;
 using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 
-string token = File.ReadAllText("token.config");
+string token = File.ReadAllText("C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\TGBOT\\token.config");
 HttpClient hc = new();
 hc.BaseAddress = new Uri($"https://api.telegram.org/bot{token}/");
 
+
 string ContentObj = hc.GetStringAsync("getme").Result;
-System.Console.WriteLine(ContentObj);
+var obj = JObject.Parse(ContentObj);
+System.Console.WriteLine(obj["ok"]);
 
 
 

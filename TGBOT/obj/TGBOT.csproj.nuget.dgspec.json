@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Тимофей\\Desktop\\Telegabot\\TGBOT\\TGBOT\\TGBOT.csproj": {}
+    "C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\TGBOT\\TGBOT.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Тимофей\\Desktop\\Telegabot\\TGBOT\\TGBOT\\TGBOT.csproj": {
+    "C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\TGBOT\\TGBOT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Тимофей\\Desktop\\Telegabot\\TGBOT\\TGBOT\\TGBOT.csproj",
+        "projectUniqueName": "C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\TGBOT\\TGBOT.csproj",
         "projectName": "TGBOT",
-        "projectPath": "C:\\Users\\Тимофей\\Desktop\\Telegabot\\TGBOT\\TGBOT\\TGBOT.csproj",
+        "projectPath": "C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\TGBOT\\TGBOT.csproj",
         "packagesPath": "C:\\Users\\Тимофей\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Тимофей\\Desktop\\Telegabot\\TGBOT\\TGBOT\\obj\\",
+        "outputPath": "C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\TGBOT\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

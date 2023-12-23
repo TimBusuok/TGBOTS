@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CuM/NIuGYw3uqTV5qBrpjLuIpVWZN4r9T/gpcJwbk4wkVjxSQTCSZnc//D0H+D1CnSBavd9RI3XAarkUAlKpeQ==",
+  "dgSpecHash": "Kq7sU22GBZc8Wm19Wbcmiw2AHTvwraUpgtDignHJxkjWqdXATpoTeEhpNp2Piy5aD9CGX4lL7fLz8fGuitAWsA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Тимофей\\Desktop\\Telegabot\\TGBOT\\TGBOT\\TGBOT.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\TGBOT\\TGBOT.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Тимофей\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
