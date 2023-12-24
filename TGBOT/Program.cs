@@ -16,7 +16,7 @@ JArray message = JArray.Parse(obj["result"].ToString());
 
 for(int i = 0;i < message.Count;i++){
     System.Console.Write($"{message[i]["message"]["from"]["first_name"]} ->");
-    System.Console.WriteLine($"{message[i]["message"]["text"]}");
+    System.Console.Write($"{message[i]["message"]["text"]}");
 }
 
 System.Console.WriteLine(message.Count);
