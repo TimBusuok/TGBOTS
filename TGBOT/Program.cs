@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
-string token = File.ReadAllText("C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\TGBOT\\.gitignore");
+string token = File.ReadAllText("C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\.gitignore");
 HttpClient hc = new();
 hc.BaseAddress = new Uri($"https://api.telegram.org/bot{token}/");
 
