@@ -27,7 +27,6 @@ C:\Users\Тимофей\Desktop\Telegabot\BOT\TGBOT\obj\Debug\net8.0\TGBOT.Gener
 C:\Users\Тимофей\Desktop\Telegabot\BOT\TGBOT\obj\Debug\net8.0\TGBOT.AssemblyInfoInputs.cache
 C:\Users\Тимофей\Desktop\Telegabot\BOT\TGBOT\obj\Debug\net8.0\TGBOT.AssemblyInfo.cs
 C:\Users\Тимофей\Desktop\Telegabot\BOT\TGBOT\obj\Debug\net8.0\TGBOT.csproj.CoreCompileInputs.cache
-C:\Users\Тимофей\Desktop\Telegabot\BOT\TGBOT\obj\Debug\net8.0\TGBOT.sourcelink.json
 C:\Users\Тимофей\Desktop\Telegabot\BOT\TGBOT\obj\Debug\net8.0\TGBOT.csproj.CopyComplete
 C:\Users\Тимофей\Desktop\Telegabot\BOT\TGBOT\obj\Debug\net8.0\TGBOT.dll
 C:\Users\Тимофей\Desktop\Telegabot\BOT\TGBOT\obj\Debug\net8.0\refint\TGBOT.dll

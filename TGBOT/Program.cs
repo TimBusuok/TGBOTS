@@ -5,14 +5,23 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
-string token = File.ReadAllText("C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\TGBOT\\token.config");
+string token = File.ReadAllText("C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\TGBOT\\.gitignore");
 HttpClient hc = new();
 hc.BaseAddress = new Uri($"https://api.telegram.org/bot{token}/");
 
-
-string ContentObj = hc.GetStringAsync("getme").Result;
+int offset = 0;
+string ContentObj = hc.GetStringAsync($"getUpdates?offset={offset}").Result;
 var obj = JObject.Parse(ContentObj);
-System.Console.WriteLine(obj["ok"]);
+JArray message = JArray.Parse(obj["result"].ToString());
+
+for(int i = 0;i < message.Count;i++){
+    System.Console.Write($"{message[i]["message"]["from"]["first_name"]} ->");
+    System.Console.WriteLine($"{message[i]["message"]["text"]}");
+}
+
+System.Console.WriteLine(message.Count);
+
+
 
 
 
