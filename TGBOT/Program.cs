@@ -7,7 +7,7 @@ using Newtonsoft.Json.Serialization;
 
 
 
-string token = File.ReadAllText("C:\\Users\\Тимофей\\Desktop\\Telegabot\\BOT\\token");
+string token = File.ReadAllText("C:\\Users\\Тимофей\\Desktop\\Telegabot\\.gitignore");
 TelegramBot bot = new TelegramBot(token);
 void Updates(TelegramMessagesModel msg)
 {
