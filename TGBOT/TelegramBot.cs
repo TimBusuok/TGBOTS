@@ -15,18 +15,18 @@ class TelegramBot{
 
 private void GetUpdates()
 {
-    long offset = 0;
-    HttpClient hc = new HttpClient(); // Initialize the HttpClient object
+    long offset = 0; // id сообщения
+    HttpClient hc = new HttpClient(); // использовали клиента
     
     while (true)
     {
-        string content = hc.GetStringAsync($"https://api.telegram.org/bot{token}/getupdates?offset={offset + 1}").Result;
+        string content = hc.GetStringAsync($"https://api.telegram.org/bot{token}/getupdates?offset={offset + 1}").Result; // ссылка на инфу сообщение боту
         try
         {
-            TelegramMessagesModel[] ms = new JsonParsers().GetMessage(content);
+            TelegramMessagesModel[] ms = new JsonParsers().GetMessage(content);// запустили модел получения сообщений боту
             if (ms.Length != 0)
             {
-                foreach (var item in ms)
+                foreach (var item in ms) // цикл по сообщениям боту
                 {
                     Console.WriteLine(item);
                     action(item);
@@ -38,7 +38,7 @@ private void GetUpdates()
         {
             Console.WriteLine("ERROR!!!");
         }
-        Thread.Sleep(1000);
+        Thread.Sleep(1000); // сделали остановку каждого сообщения в 1 секунду 
     }
 }
     public void SendMessage(long update_id, string text){

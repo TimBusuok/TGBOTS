@@ -15,6 +15,6 @@ class TelegramMessagesModel{
     }
     public override string ToString()
     {
-        return $"{first_name}:{text} -> {chatId};{update_id}";
+        return $"{first_name}:{text} -> {chatId};{update_id}"; // получение сообщения бота
     }
 }

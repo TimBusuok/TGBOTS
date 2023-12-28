@@ -7,15 +7,16 @@ using Newtonsoft.Json.Serialization;
 
 
 
-string token = File.ReadAllText("C:\\Users\\Тимофей\\Desktop\\Telegabot\\.gitignore");
+string token = File.ReadAllText("C:\\Users\\Тимофей\\Desktop\\Telegabot\\.gitignore"); // установили путь к файлу токена 
 TelegramBot bot = new TelegramBot(token);
-void Updates(TelegramMessagesModel msg)
+
+void Updates(TelegramMessagesModel msg) // функция получения информации 
 {
-    bot.SendMessage(msg.chatId,$"{msg.text}: получено");
+    bot.SendMessage(msg.chatId,$"{msg.text}: получено"); // написали id сообзения
 }
 
 bot.action = Updates;
-bot.Start();
+bot.Start(); // запустили бота 
 
 System.Console.WriteLine("++++");
 
