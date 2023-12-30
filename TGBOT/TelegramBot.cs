@@ -1,10 +1,13 @@
 using System.Net.Http.Headers;
+using System.Numerics;
 
-class TelegramBot{
+class TelegramBot
+{
     string token;
     public Action<TelegramMessagesModel>action;
     Thread thread;
-    HttpClient hc;
+    HttpClient hc = new HttpClient();
+
 
     public TelegramBot(string token){
         this.token = token;
@@ -41,9 +44,14 @@ private void GetUpdates()
         Thread.Sleep(1000); // сделали остановку каждого сообщения в 1 секунду 
     }
 }
-    public void SendMessage(long update_id, string text){
-        #region
-        #endregion
+    public async Task SendMessageAsync(long chatId, string text){
+        using(HttpClient hc = new HttpClient()){
+            string url = $"https://api.telegram.org/bot{token}/sendMessage?chat_id={chatId}&text={text}";
+            HttpResponseMessage response = await hc.GetAsync(url);
+            string responseContent = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine(responseContent);
+        }
     }
 
     public void Start(){

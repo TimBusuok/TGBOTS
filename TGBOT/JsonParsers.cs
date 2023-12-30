@@ -17,6 +17,9 @@ class JsonParsers
             string first_name = item.message.from.first_name;
 
             msgs.Add(new(id,update_id,text,first_name)); // обновили сообщения новым данными 
+
+            
+            
         }
         return msgs.ToArray();
     }
