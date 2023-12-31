@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Telegram.Bot.Types.ReplyMarkups;
+
 
 class TelegramMessagesModel
 {
@@ -20,16 +20,21 @@ class TelegramMessagesModel
         this.update_id = update_id;
         this.first_name = first_name;
         this.text = text;
+        if(text == "/start"){
+            string content = $"Приветствую, выбирите функцию:\n{MesVar()}";
+            this.text = content;
+        }
 
         if (text == "/stop")
         {
             content = "Досвидание! Спасибо что использовали нашего бота";
             this.text = content;
         }
-        else
-        {
-            Various(text);
-        }
+    }
+
+    private string InlineKeyboardButton(InlineKeyboardMarkup inlineKeyboardMarkup)
+    {
+        throw new NotImplementedException();
     }
 
     public override string ToString()
@@ -37,27 +42,25 @@ class TelegramMessagesModel
         return $"{first_name}:{text} -> {chatId};{update_id}"; // получение сообщения бота
     }
 
-    public void Various(string text)
-    {
-        string moon = "луна";
-        string earth = "земля";
-        switch (text)
-        {
-            case "луна":
-                this.text = moon;
-                break;
+    // public void Various(string text)
+    // {
+    //     string moon = "луна";
+    //     string earth = "земля";
+    //     switch (text)
+    //     {
+    //         case "луна":
+    //             this.text = moon;
+    //             break;
 
-            case "земля":
-                this.text = earth;
-                break;
-        }
-    }
+    //         case "земля":
+    //             this.text = earth;
+    //             break;
+    //     }
+    // }
 
-    public static InlineKeyboardMarkup MesVar(string text)
+    public static InlineKeyboardMarkup MesVar()
     {
-        if (text == "/start")
-        {
-            string content = "Приветсвую\nВыберите функцию:";
+
             var button1 = new InlineKeyboardButton
             {
                 Text = "Кнопка 1",
@@ -77,9 +80,6 @@ class TelegramMessagesModel
 
             return replyMarkup;
         }
-
-        return null;
-    }
 }
 
 internal class InlineKeyboardMarkup
