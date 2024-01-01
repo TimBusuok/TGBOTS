@@ -1,12 +1,14 @@
 using System.Net.Http.Headers;
 using System.Numerics;
 
+
 class TelegramBot
 {
     string token;
     public Action<TelegramMessagesModel>action;
     Thread thread;
     HttpClient hc = new HttpClient();
+
 
 
     public TelegramBot(string token){
@@ -54,7 +56,19 @@ private void GetUpdates()
         }
     }
 
+    public void CheckBot(TelegramMessagesModel msg){
+        TelegramBot bot1 = new TelegramBot(token);
+        if(msg.text == "/stop"){
+            bot1.StopReceiving();
+        }
+    }
+
     public void Start(){
         thread.Start();
+    }
+
+    internal void StopReceiving()
+    {
+        throw new NotImplementedException();
     }
 }

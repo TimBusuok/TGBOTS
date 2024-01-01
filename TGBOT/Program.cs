@@ -1,6 +1,7 @@
 ﻿
 using System.ComponentModel;
 using System.Net.Http;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
@@ -16,7 +17,8 @@ void Updates(TelegramMessagesModel msg) // функция получения и�
 }
 
 bot.action = Updates;
-bot.Start(); // запустили бота 
+bot.Start();
+bot.CheckBot();
 
 System.Console.WriteLine("++++");  
 
