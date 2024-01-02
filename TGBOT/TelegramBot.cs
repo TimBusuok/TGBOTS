@@ -56,12 +56,12 @@ private void GetUpdates()
         }
     }
 
-    public void CheckBot(TelegramMessagesModel msg){
-        TelegramBot bot1 = new TelegramBot(token);
-        if(msg.text == "/stop"){
-            bot1.StopReceiving();
-        }
-    }
+    // public void CheckBot(TelegramMessagesModel msg){
+    //     TelegramBot bot1 = new TelegramBot(token);
+    //     if(msg.text == "/stop"){
+    //         bot1.StopReceiving();
+    //     }
+    // }
 
     public void Start(){
         thread.Start();

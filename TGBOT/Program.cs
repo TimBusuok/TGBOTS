@@ -18,7 +18,6 @@ void Updates(TelegramMessagesModel msg) // функция получения и�
 
 bot.action = Updates;
 bot.Start();
-bot.CheckBot();
 
 System.Console.WriteLine("++++");  
 
