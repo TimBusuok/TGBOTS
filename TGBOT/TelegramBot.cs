@@ -39,9 +39,10 @@ private void GetUpdates()
                 }
             }
         }
-        catch
+        catch(Exception ex)
         {
             Console.WriteLine("ERROR!!!");
+            Console.WriteLine(ex.Message);
         }
         Thread.Sleep(1000); // сделали остановку каждого сообщения в 1 секунду 
     }
@@ -65,10 +66,5 @@ private void GetUpdates()
 
     public void Start(){
         thread.Start();
-    }
-
-    internal void StopReceiving()
-    {
-        throw new NotImplementedException();
     }
 }

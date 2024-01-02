@@ -10,7 +10,7 @@ using System.Data;
 
 class TelegramMessagesModel
 {
-    public string token = File.ReadAllText("C:\\Users\\Тимофей\\Desktop\\Telegabot\\.gitignore");
+
     public long update_id;
     public long chatId;
     public string text;
@@ -21,11 +21,14 @@ class TelegramMessagesModel
 
     public TelegramMessagesModel(long chatId, long update_id, string text, string first_name)
     {
-        TelegramBot bot = new TelegramBot(token);
+        
         this.chatId = chatId;
         this.update_id = update_id;
         this.first_name = first_name;
         this.text = text;
+        this.content = "";
+        this.party = "";
+
 
         switch(text){
             case "/start":
@@ -101,21 +104,51 @@ class TelegramMessagesModel
         }
         return $"Cегодня праздников нет😔";
     } 
-    // public void Various(string text)
-    // {
-    //     string moon = "луна";
-    //     string earth = "земля";
-    //     switch (text)
-    //     {
-    //         case "луна":
-    //             this.text = moon;
-    //             break;
+   public string Planet(){
+        string qwestion = "Выбирите планету🔭:\nМеркурий(/mercure)\nВенера(/venera)\nЗемля(/earth)\nМарс(/mars)\nЮпитер(/jupiter)\nСатурн(/saturn)\nУран(/uran)\nНептун(/neptun)";
+        int R = 0;
+        int D = 0;
+        int S = 0;
+        int S1 = 0;
+        long population = 0;
+        // content = "Отправляются данные";
+        // this.text = content;
+        // content = "Ещё чуть-чуть";
+        // this.text = content;
+        // content = "Связываемся со спутником🛰️";
+        // this.text = content;
+        string res = InfoPlanet(qwestion,R,D,S,S1,population);
+        return res;
+   }
+   public string InfoPlanet(string qwestion,int R,int D,int S,int S1,long population){
+        switch(qwestion){
+            case "/mercure":
+            R = R + 2440;
+            D = D + 4878;
+            S = S + 46000000;
+            S1 = S1 + 90000000;
+            content = $"Данные планеты получены👾📡:\nРадиус = {R}км\nДиаметр = {D}км\nРасстояние до Солнца = {S}км\nРасстояние до Земли = {S1}км\n Популяция = никого нету(может пару вездеходов🛰️)";
+            return content;
 
-    //         case "земля":
-    //             this.text = earth;
-    //             break;
-    //     }
-    // }
+            case "/venera":
+            R = R + 6052;
+            D = D + 12104;
+            S = S + 110000000;
+            S1 = S + 38000000;
+            content = $"Данные планеты получены👾📡:\nРадиус = {R}км\nДиаметр = {D}км\nРасстояние до Солнца = {S}км\nРасстояние до Земли = {S1}км\n Популяция = никого нету(может пару вездеходов🛰️)";
+            return content;
 
-
+            case "/earth":
+            R = R + 6378;
+            D = D + 12712;
+            S = S + 149600000;
+            population = population + 8000000000;
+            content = $"Данные планеты получены👾📡:\nРадиус = {R}км\nДиаметр = {D}км\nРасстояние до Солнца = {S}км\nРасстояние до Земли = {S1}км\n Популяция = {population}";
+            return content;
+        }
+        return "Данные не получены, проверьте запрос";
+   }
 }
+
+
+
