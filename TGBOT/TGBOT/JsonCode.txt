@@ -1,0 +1,14 @@
+
+// JSON
+//{
+//    "ok": true,
+//    "result": {
+//        "id": 6810249007,
+//        "is_bot": true,
+//        "first_name": "проект спутник",
+//        "username": "SyperPuperProject_bot",
+//        "can_join_groups": true,
+//        "can_read_all_group_messages": false,
+//        "supports_inline_queries": false
+//    }
+//}

@@ -10,25 +10,17 @@ using System.Data;
 
 class TelegramMessagesModel
 {
-
-    public long update_id;
     public long chatId;
+    public long update_id;
     public string text;
     public string first_name;
-    private long id;
-    string content;
-    string party;
 
     public TelegramMessagesModel(long chatId, long update_id, string text, string first_name)
     {
-        
         this.chatId = chatId;
         this.update_id = update_id;
         this.first_name = first_name;
         this.text = text;
-        this.content = "";
-        this.party = "";
-
 
         switch(text){
             case "/start":
@@ -47,10 +39,7 @@ class TelegramMessagesModel
             content = CheckDay();
             this.text = content;
             break;
-            case "/planet":
-            content = Planet();
-            this.text = content;
-            break;
+            
         }
     }
     public override string ToString()
@@ -62,93 +51,79 @@ class TelegramMessagesModel
         DateTime date = new DateTime();
         string incrementedDateTime = date.AddDays(1).ToString();
         string dataRes = incrementedDateTime.Remove(incrementedDateTime.Length - 13);
-        string res = $"Сегодня ({dataRes}) такие праздники🎉🎉:\n{ShowHolidays(date)}";
+        string hollidays = ShowHolidays(date);
+        string res = $"Сегодня ({dataRes}) такие праздники🎉🎉:\n{hollidays}";
         return res;
     }
-    public string ShowHolidays(DateTime date){
-        string incrementedDateTime = date.AddDays(1).ToString();
-        string res = incrementedDateTime.Remove(incrementedDateTime.Length - 13);
-        switch(res){
-            case "01.01" or "02.01" or "03.01" or "04.01" or "05.01" or "06.01" or "08.01": 
-            party = $"Новогодние праздники⛄🎅"; 
-            return party;
-            
-            case "07.01":
-            party = "Новогодние праздники⛄🎅\nРождество🎄"; 
-            return party;
-            
-            case "23.02":
+    public string ShowHolidays(DateTime date)
+    {
+    string incrementedDateTime = date.AddDays(1).ToString();
+    string res = incrementedDateTime.Remove(incrementedDateTime.Length - 13);
+    string party = "";
+
+    switch (res)
+    {
+        case "01.01":
+        case "02.01":
+        case "03.01":
+        case "04.01":
+        case "05.01":
+        case "06.01":
+        case "08.01":
+            party = "Новогодние праздники⛄🎅";
+            break;
+
+        case "07.01":
+            party = "Новогодние праздники⛄🎅\nРождество🎄";
+            break;
+
+        case "23.02":
             party = "День Защитника Отечества🏋️💪";
-            return party;
-            
-            case "08.03":
+            break;
+
+        case "08.03":
             party = "Международный женский день🌹🌹";
-            return party;
-            
-            case "01.05":
+            break;
+
+        case "01.05":
             party = "Праздник Весны и Труда🌿👔";
-            return party;
-            
-            case "09.05":
+            break;
+
+        case "09.05":
             party = "День Победы🎆🎆";
-            return party;
-            
-            case "04.11":
+            break;
+
+        case "04.11":
             party = "День народного единства👨👩👳🧕";
-            return party;
+            break;
 
-            case "12.06":
-            party = "День России \U0001F1F7\U0001F1FA ";
-            return party;
-            
-        }
-        return $"Cегодня праздников нет😔";
-    } 
-   public string Planet(){
-        string qwestion = "Выбирите планету🔭:\nМеркурий(/mercure)\nВенера(/venera)\nЗемля(/earth)\nМарс(/mars)\nЮпитер(/jupiter)\nСатурн(/saturn)\nУран(/uran)\nНептун(/neptun)";
-        int R = 0;
-        int D = 0;
-        int S = 0;
-        int S1 = 0;
-        long population = 0;
-        // content = "Отправляются данные";
-        // this.text = content;
-        // content = "Ещё чуть-чуть";
-        // this.text = content;
-        // content = "Связываемся со спутником🛰️";
-        // this.text = content;
-        string res = InfoPlanet(qwestion,R,D,S,S1,population);
-        return res;
-   }
-   public string InfoPlanet(string qwestion,int R,int D,int S,int S1,long population){
-        switch(qwestion){
-            case "/mercure":
-            R = R + 2440;
-            D = D + 4878;
-            S = S + 46000000;
-            S1 = S1 + 90000000;
-            content = $"Данные планеты получены👾📡:\nРадиус = {R}км\nДиаметр = {D}км\nРасстояние до Солнца = {S}км\nРасстояние до Земли = {S1}км\n Популяция = никого нету(может пару вездеходов🛰️)";
-            return content;
+        case "12.06":
+            party = "День России 🇷🇺";
+            break;
 
-            case "/venera":
-            R = R + 6052;
-            D = D + 12104;
-            S = S + 110000000;
-            S1 = S + 38000000;
-            content = $"Данные планеты получены👾📡:\nРадиус = {R}км\nДиаметр = {D}км\nРасстояние до Солнца = {S}км\nРасстояние до Земли = {S1}км\n Популяция = никого нету(может пару вездеходов🛰️)";
-            return content;
+        default:
+            party = "Cегодня праздников нет😔";
+            break;
+    }
 
-            case "/earth":
-            R = R + 6378;
-            D = D + 12712;
-            S = S + 149600000;
-            population = population + 8000000000;
-            content = $"Данные планеты получены👾📡:\nРадиус = {R}км\nДиаметр = {D}км\nРасстояние до Солнца = {S}км\nРасстояние до Земли = {S1}км\n Популяция = {population}";
-            return content;
-        }
-        return "Данные не получены, проверьте запрос";
-   }
+    return party;
 }
+    } 
+    // public void Various(string text)
+    // {
+    //     string moon = "луна";
+    //     string earth = "земля";
+    //     switch (text)
+    //     {
+    //         case "луна":
+    //             this.text = moon;
+    //             break;
+
+    //         case "земля":
+    //             this.text = earth;
+    //             break;
+    //     }
+    // }
 
 
 
